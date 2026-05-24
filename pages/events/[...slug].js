@@ -1,4 +1,5 @@
 import { useRouter } from "next/router";
+import Head from "next/head";
 import EventsItem from "../../components/events/events-item";
 import { getFilteredEvents } from "../../data";
 
@@ -38,6 +39,10 @@ const FilteredEvents = () => {
 
   return (
     <Fragment>
+      <Head>
+        <title>Filtered Events</title>
+        <meta name="description" content="Find all filtered Events" />
+      </Head>
       <EventsItem items={filteredItems} />
     </Fragment>
   );

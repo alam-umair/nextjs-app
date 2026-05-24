@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import classes from "./events-list.module.css";
 
 import AddressIcon from "../icons/address-icon";
@@ -13,11 +14,11 @@ const EventsList = ({ image, title, time, location, description, id }) => {
     year: "numeric",
   });
 
-  // const formattedAddress = location.replace(", ", "\n");
+  const formattedAddress = location.replace(", ", "\n");
 
   return (
     <li key={id} className={classes.item}>
-      <img src={image} alt={title} />
+      <Image src={image} alt={title} width={300} height={300} loading="eager" />
       <div className={classes.content}>
         <div className={classes.summary}>
           <h2>{title}</h2>
@@ -27,7 +28,7 @@ const EventsList = ({ image, title, time, location, description, id }) => {
           </div>
           <div className={classes.address}>
             <span>{<AddressIcon />}</span>
-            <address>{location}</address>
+            <address>{formattedAddress}</address>
           </div>
         </div>
         <div>

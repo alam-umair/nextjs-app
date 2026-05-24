@@ -6,6 +6,8 @@ import EventSummary from "../../components/event-detail/event-summary";
 import EventLogistics from "../../components/event-detail/event-logistics";
 import EventContent from "../../components/event-detail/event-content";
 
+import Head from "next/head";
+
 const EventDetailsPage = (props) => {
   const event = props.event; // extract the event data from props
 
@@ -16,6 +18,10 @@ const EventDetailsPage = (props) => {
 
   return (
     <Fragment>
+      <Head>
+        <title>{event.title}</title>
+        <meta name="description" content={event.description} />
+      </Head>
       <EventSummary title={event.title} />
       <EventLogistics
         date={event.date}

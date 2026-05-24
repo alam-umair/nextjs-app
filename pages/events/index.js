@@ -4,6 +4,8 @@ import { useRouter } from "next/router";
 import EventSearch from "../../components/event-search/event-search";
 import { Fragment } from "react";
 
+import Head from "next/head";
+
 const Events = (props) => {
   const router = useRouter();
 
@@ -14,6 +16,10 @@ const Events = (props) => {
 
   return (
     <Fragment>
+      <Head>
+        <title>All Events</title>
+        <meta name="description" content="Browse all events" />
+      </Head>
       <EventSearch onSearch={clickHandler} />
       <EventsItem items={props.allItems} />
     </Fragment>
